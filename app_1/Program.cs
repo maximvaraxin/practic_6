@@ -11,7 +11,58 @@ namespace App_1
     {
         static void Main(string[] args)
         {
-            
+            Console.Write($"Введите длину массива: ");
+            int length = Convert.ToInt32(Console.ReadLine());
+
+            int[] array = AddArray(length);
+
+            PrintArray(array);
+            ReverseArray(ref array, true);
+            PrintArray(array);
+
+        }
+        
+        // заполняет массив случайными числами
+        static int[] AddArray(int length)
+        {
+            int[] resultArray = new int[length];
+
+            for (int i = 0; i < resultArray.Length; i++)
+			{
+                resultArray[i] = new Random().Next(10,100);
+			}
+
+            return resultArray;
+        }
+
+        // выводит массив в консоль
+        static void PrintArray(int[] array)
+        {   
+            Console.Write($"Массив: ");
+
+            for (int i = 0; i < array.Length; i++)
+			{
+                Console.Write($"{array[i]}({i}) ");
+			}
+        }
+
+        // реверс массива
+        static void ReverseArray(ref int[] array, bool enableLogging = false)
+        {
+            int[] reverseArray = new int[array.Length];
+
+            if (enableLogging == true)
+            {   
+                Console.WriteLine();
+                Console.WriteLine($"Выполняется реверс");
+            }
+
+            for (int i = 0; i < array.Length; i++)
+			{
+                reverseArray[i] = array[array.Length - ( i + 1 )];
+			}
+
+            array = reverseArray;
         }
     }
 }
