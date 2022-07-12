@@ -16,7 +16,7 @@ namespace App_5
             PrintArray(array);
             int[] copyArray = CopyArray( array, true );
             PrintArray(copyArray);
-
+        }
              // заполняет массив случайными числами
             static int[] AddArray(int length)
             {
@@ -59,6 +59,5 @@ namespace App_5
 
                 return copyArray;
             }
-        }
     }
 }
